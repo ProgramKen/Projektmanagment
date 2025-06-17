@@ -1,0 +1,75 @@
+{
+  "name": "project-manager",
+  "version": "1.0.0",
+  "description": "Open Source Project Management Tool with Knowledge Graph",
+  "main": "src/index.tsx",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^5.17.1",
+    "@mui/material": "^5.17.1",
+    "@mui/x-tree-view": "^6.17.0",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@types/cytoscape": "^3.21.9",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cytoscape": "^3.32.0",
+    "firebase": "^9.17.2",
+    "lucide-react": "^0.516.0",
+    "react": "^18.2.0",
+    "react-beautiful-dnd": "^13.1.1",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.8.1",
+    "recharts": "^2.5.0",
+    "socket.io-client": "^4.6.1",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-beautiful-dnd": "^13.1.3",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^8.35.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "postcss": "^8.5.6",
+    "react-scripts": "5.0.1",
+    "tailwindcss": "^4.1.10",
+    "typescript": "^4.9.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "keywords": [
+    "project-management",
+    "knowledge-graph",
+    "react",
+    "firebase",
+    "open-source"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

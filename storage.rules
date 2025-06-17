@@ -1,0 +1,37 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Users folder - users can only access their own files
+    match /users/{userId}/{allPaths=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Projects folder - users can access files if they have project access
+    match /projects/{projectId}/{allPaths=**} {
+      allow read: if request.auth != null && 
+        canAccessProject(request.auth.uid, projectId);
+      
+      allow write: if request.auth != null && 
+        canAccessProject(request.auth.uid, projectId) &&
+        isValidFile();
+    }
+    
+    // Public folder - anyone can read, only authenticated users can write
+    match /public/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null && isValidFile();
+    }
+    
+    // Helper functions
+    function canAccessProject(userId, projectId) {
+      // This would need to be implemented with a Firestore lookup
+      // For now, we'll allow if user is authenticated
+      return request.auth != null;
+    }
+    
+    function isValidFile() {
+      return request.resource.size <= 50 * 1024 * 1024 && // 50MB max
+             request.resource.contentType.matches('image/.*|video/.*|application/pdf|text/.*|application/msword|application/vnd.openxmlformats-officedocument.*');
+    }
+  }
+}
