@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import {
   Card,
   CardContent,
-  TextField,
-  Button,
-  Link,
-  CircularProgress,
-  Box,
-  Typography,
-  Alert,
-} from '@mui/material';
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from '../ui/card';
+import { Button } from '../ui/button';
+import { Input } from '../ui/input';
+import { Label } from '../ui/label';
 import { useAuth } from '../../hooks/useAuth';
 
 interface LoginFormProps {
@@ -27,64 +26,47 @@ const LoginForm: React.FC<LoginFormProps> = ({ onToggleMode }) => {
   };
 
   return (
-    <Card sx={{ maxWidth: 400, width: '100%' }}>
-      <CardContent sx={{ p: 3 }}>
-        <Typography variant="h4" component="h1" gutterBottom align="center">
-          Anmelden
-        </Typography>
-        <Typography variant="body2" color="textSecondary" align="center" sx={{ mb: 3 }}>
-          Melden Sie sich in Ihrem Project Manager an
-        </Typography>
-
-        {error && (
-          <Alert severity="error" sx={{ mb: 2 }}>
-            {error}
-          </Alert>
-        )}
-
-        <Box component="form" onSubmit={handleSubmit}>
-          <TextField
-            label="E-Mail"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            autoComplete="email"
-            autoFocus
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label="Passwort"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            autoComplete="current-password"
-            fullWidth
-            margin="normal"
-          />
-          <Button
-            type="submit"
-            disabled={loading || !email || !password}
-            variant="contained"
-            fullWidth
-            sx={{ mt: 3, mb: 2 }}
-          >
-            {loading ? <CircularProgress size={24} color="inherit" /> : 'Anmelden'}
+    <Card className="w-full max-w-md space-y-4 p-6">
+      <CardHeader className="space-y-2 text-center">
+        <CardTitle>Anmelden</CardTitle>
+        <CardDescription>Melden Sie sich in Ihrem Project Manager an</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {error && <div className="text-sm text-red-600">{error}</div>}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="email">E-Mail</Label>
+            <Input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              autoComplete="email"
+              autoFocus
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="password">Passwort</Label>
+            <Input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              autoComplete="current-password"
+            />
+          </div>
+          <Button type="submit" className="w-full" disabled={loading || !email || !password}>
+            {loading ? 'Lädt...' : 'Anmelden'}
           </Button>
-        </Box>
-
-        <Typography variant="body2" align="center">
+        </form>
+        <p className="text-center text-sm">
           Noch kein Konto?{' '}
-          <Link 
-            component="button" 
-            onClick={onToggleMode}
-            sx={{ cursor: 'pointer' }}
-          >
+          <button type="button" onClick={onToggleMode} className="underline">
             Jetzt registrieren
-          </Link>
-        </Typography>
+          </button>
+        </p>
       </CardContent>
     </Card>
   );
