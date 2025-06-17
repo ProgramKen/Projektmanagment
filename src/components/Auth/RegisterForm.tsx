@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import {
   Card,
   CardContent,
-  TextField,
-  Button,
-  Link,
-  CircularProgress,
-  Box,
-  Typography,
-  Alert,
-} from '@mui/material';
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from '../ui/card';
+import { Button } from '../ui/button';
+import { Input } from '../ui/input';
+import { Label } from '../ui/label';
 import { useAuth } from '../../hooks/useAuth';
 
 interface RegisterFormProps {
@@ -32,85 +31,75 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onToggleMode }) => {
   };
 
   return (
-    <Card sx={{ maxWidth: 400, width: '100%' }}>
-      <CardContent sx={{ p: 3 }}>
-        <Typography variant="h4" component="h1" gutterBottom align="center">
-          Registrieren
-        </Typography>
-        <Typography variant="body2" color="textSecondary" align="center" sx={{ mb: 3 }}>
-          Erstellen Sie ein neues Konto
-        </Typography>
-
-        {error && (
-          <Alert severity="error" sx={{ mb: 2 }}>
-            {error}
-          </Alert>
-        )}
-
-        <Box component="form" onSubmit={handleSubmit}>
-          <TextField
-            label="Vollständiger Name"
-            value={displayName}
-            onChange={(e) => setDisplayName(e.target.value)}
-            required
-            autoComplete="name"
-            autoFocus
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label="E-Mail"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            autoComplete="email"
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label="Passwort"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            autoComplete="new-password"
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label="Passwort bestätigen"
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-            autoComplete="new-password"
-            fullWidth
-            margin="normal"
-            error={password !== confirmPassword && confirmPassword !== ''}
-            helperText={password !== confirmPassword && confirmPassword !== '' ? 'Passwörter stimmen nicht überein' : ''}
-          />
+    <Card className="w-full max-w-md space-y-4 p-6">
+      <CardHeader className="space-y-2 text-center">
+        <CardTitle>Registrieren</CardTitle>
+        <CardDescription>Erstellen Sie ein neues Konto</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {error && <div className="text-sm text-red-600">{error}</div>}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="name">Vollständiger Name</Label>
+            <Input
+              id="name"
+              value={displayName}
+              onChange={(e) => setDisplayName(e.target.value)}
+              required
+              autoComplete="name"
+              autoFocus
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="email">E-Mail</Label>
+            <Input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              autoComplete="email"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="password">Passwort</Label>
+            <Input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              autoComplete="new-password"
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="confirm">Passwort bestätigen</Label>
+            <Input
+              id="confirm"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              autoComplete="new-password"
+            />
+            {password !== confirmPassword && confirmPassword !== '' && (
+              <p className="text-sm text-red-600">Passwörter stimmen nicht überein</p>
+            )}
+          </div>
           <Button
             type="submit"
+            className="w-full"
             disabled={loading || !email || !password || password !== confirmPassword}
-            variant="contained"
-            fullWidth
-            sx={{ mt: 3, mb: 2 }}
           >
-            {loading ? <CircularProgress size={24} color="inherit" /> : 'Registrieren'}
+            {loading ? 'Lädt...' : 'Registrieren'}
           </Button>
-        </Box>
-
-        <Typography variant="body2" align="center">
+        </form>
+        <p className="text-center text-sm">
           Bereits ein Konto?{' '}
-          <Link 
-            component="button" 
-            onClick={onToggleMode}
-            sx={{ cursor: 'pointer' }}
-          >
+          <button type="button" onClick={onToggleMode} className="underline">
             Anmelden
-          </Link>
-        </Typography>
+          </button>
+        </p>
       </CardContent>
     </Card>
   );

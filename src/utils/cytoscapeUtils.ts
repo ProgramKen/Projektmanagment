@@ -26,46 +26,46 @@ export interface CytoscapeGraphData {
 
 export const NODE_STYLES = {
   project: {
-    backgroundColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    borderColor: '#5a67d8',
+    backgroundColor: '#0072A3',
+    borderColor: '#005B86',
     shape: 'round-rectangle',
     textColor: '#ffffff',
-    shadowColor: '#667eea'
+    shadowColor: '#0072A3'
   },
   user: {
-    backgroundColor: 'linear-gradient(135deg, #48bb78 0%, #38a169 100%)', 
-    borderColor: '#38a169',
+    backgroundColor: '#21A675',
+    borderColor: '#17845E',
     shape: 'ellipse',
     textColor: '#ffffff',
-    shadowColor: '#48bb78'
+    shadowColor: '#21A675'
   },
   person: {
-    backgroundColor: 'linear-gradient(135deg, #4fd1c7 0%, #38b2ac 100%)', 
-    borderColor: '#38b2ac',
+    backgroundColor: '#4398D1',
+    borderColor: '#367FB4',
     shape: 'ellipse',
     textColor: '#ffffff',
-    shadowColor: '#4fd1c7'
+    shadowColor: '#4398D1'
   },
   department: {
-    backgroundColor: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-    borderColor: '#e53e3e',
+    backgroundColor: '#8B61A2',
+    borderColor: '#6A4881',
     shape: 'hexagon',
     textColor: '#ffffff',
-    shadowColor: '#f093fb'
+    shadowColor: '#8B61A2'
   },
   task: {
-    backgroundColor: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
-    borderColor: '#ed8936', 
+    backgroundColor: '#FDB515',
+    borderColor: '#E09E0F',
     shape: 'diamond',
     textColor: '#2d3748',
-    shadowColor: '#ffecd2'
+    shadowColor: '#FDB515'
   },
   tag: {
-    backgroundColor: 'linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%)',
-    borderColor: '#7c3aed',
+    backgroundColor: '#90A4AE',
+    borderColor: '#607D8B',
     shape: 'triangle',
     textColor: '#ffffff',
-    shadowColor: '#a78bfa'
+    shadowColor: '#90A4AE'
   },
 };
 
@@ -440,7 +440,7 @@ export const getCytoscapeStyles = (): any => [
   {
     selector: 'node',
     style: {
-      'background-color': '#667eea',
+      'background-color': '#0082D6',
       'label': 'data(label)',
       'text-valign': 'center',
       'text-halign': 'center',
@@ -448,16 +448,16 @@ export const getCytoscapeStyles = (): any => [
       'font-size': '14px',
       'font-weight': '600',
       'font-family': 'Inter, system-ui, sans-serif',
-      'border-width': 3,
-      'border-color': '#5a67d8',
+      'border-width': 2,
+      'border-color': '#ffffff',
       'width': 'data(size)',
       'height': 'data(size)',
       'text-wrap': 'wrap',
       'text-max-width': '120px',
       'overlay-opacity': 0,
-      'shadow-blur': 20,
-      'shadow-color': '#667eea',
-      'shadow-opacity': 0.4,
+      'shadow-blur': 12,
+      'shadow-color': '#003B57',
+      'shadow-opacity': 0.3,
       'shadow-offset-x': 0,
       'shadow-offset-y': 4,
       'transition-property': 'background-color, border-color, shadow-blur',
@@ -468,10 +468,10 @@ export const getCytoscapeStyles = (): any => [
   {
     selector: 'node.project',
     style: {
-      'background-color': '#667eea',
-      'border-color': '#5a67d8',
+      'background-color': '#0072A3',
+      'border-color': '#005B86',
       'shape': 'round-rectangle',
-      'shadow-color': '#667eea',
+      'shadow-color': '#003B57',
       'shadow-blur': 25,
       'shadow-opacity': 0.5,
       'border-width': 4,
@@ -483,10 +483,10 @@ export const getCytoscapeStyles = (): any => [
   {
     selector: 'node.user',
     style: {
-      'background-color': '#48bb78',
-      'border-color': '#38a169',
+      'background-color': '#21A675',
+      'border-color': '#17845E',
       'shape': 'ellipse',
-      'shadow-color': '#48bb78',
+      'shadow-color': '#14664a',
       'shadow-blur': 20,
       'shadow-opacity': 0.4,
       'border-width': 3,
@@ -497,10 +497,10 @@ export const getCytoscapeStyles = (): any => [
   {
     selector: 'node.person',
     style: {
-      'background-color': '#4fd1c7',
-      'border-color': '#38b2ac',
+      'background-color': '#4398D1',
+      'border-color': '#367FB4',
       'shape': 'ellipse',
-      'shadow-color': '#4fd1c7',
+      'shadow-color': '#2d6f99',
       'shadow-blur': 20,
       'shadow-opacity': 0.4,
       'border-width': 3,
@@ -511,10 +511,10 @@ export const getCytoscapeStyles = (): any => [
   {
     selector: 'node.department',
     style: {
-      'background-color': '#f093fb',
-      'border-color': '#e53e3e',
+      'background-color': '#8B61A2',
+      'border-color': '#6A4881',
       'shape': 'hexagon',
-      'shadow-color': '#f093fb',
+      'shadow-color': '#593f66',
       'shadow-blur': 25,
       'shadow-opacity': 0.5,
       'border-width': 4,
@@ -526,11 +526,11 @@ export const getCytoscapeStyles = (): any => [
   {
     selector: 'node.task',
     style: {
-      'background-color': '#ffecd2',
-      'border-color': '#ed8936',
+      'background-color': '#FDB515',
+      'border-color': '#E09E0F',
       'color': '#2d3748',
       'shape': 'diamond',
-      'shadow-color': '#ffecd2',
+      'shadow-color': '#b98310',
       'shadow-blur': 15,
       'shadow-opacity': 0.4,
       'border-width': 3,
@@ -542,10 +542,10 @@ export const getCytoscapeStyles = (): any => [
   {
     selector: 'node.tag',
     style: {
-      'background-color': '#a78bfa',
-      'border-color': '#7c3aed',
+      'background-color': '#90A4AE',
+      'border-color': '#607D8B',
       'shape': 'triangle',
-      'shadow-color': '#a78bfa',
+      'shadow-color': '#566b75',
       'shadow-blur': 15,
       'shadow-opacity': 0.4,
       'border-width': 2,
@@ -623,8 +623,8 @@ export const getCytoscapeStyles = (): any => [
   {
     selector: 'edge.owner',
     style: {
-      'line-color': '#8b5cf6',
-      'target-arrow-color': '#8b5cf6',
+      'line-color': '#0072A3',
+      'target-arrow-color': '#0072A3',
       'width': 5,
       'opacity': 0.9,
       'z-index': 10
@@ -634,8 +634,8 @@ export const getCytoscapeStyles = (): any => [
   {
     selector: 'edge.member',
     style: {
-      'line-color': '#48bb78',
-      'target-arrow-color': '#48bb78',
+      'line-color': '#21A675',
+      'target-arrow-color': '#21A675',
       'width': 3,
       'opacity': 0.8
     }
@@ -644,8 +644,8 @@ export const getCytoscapeStyles = (): any => [
   {
     selector: 'edge.depends',
     style: {
-      'line-color': '#f59e0b',
-      'target-arrow-color': '#f59e0b',
+      'line-color': '#FDB515',
+      'target-arrow-color': '#FDB515',
       'width': 4,
       'line-style': 'dotted',
       'line-dash-pattern': [8, 4],
@@ -656,8 +656,8 @@ export const getCytoscapeStyles = (): any => [
   {
     selector: 'edge.assigned',
     style: {
-      'line-color': '#8b5cf6',
-      'target-arrow-color': '#8b5cf6',
+      'line-color': '#0082D6',
+      'target-arrow-color': '#0082D6',
       'width': 2
     }
   },
@@ -665,7 +665,7 @@ export const getCytoscapeStyles = (): any => [
   {
     selector: 'edge.tagged',
     style: {
-      'line-color': '#d1d5db',
+      'line-color': '#A0A0A0',
       'target-arrow-shape': 'none',
       'width': 1,
       'line-style': 'dotted'
@@ -675,8 +675,8 @@ export const getCytoscapeStyles = (): any => [
   {
     selector: 'edge.department-relation',
     style: {
-      'line-color': '#dc2626',
-      'target-arrow-color': '#dc2626',
+      'line-color': '#8B61A2',
+      'target-arrow-color': '#8B61A2',
       'width': 3,
       'line-style': 'solid'
     }
@@ -685,8 +685,8 @@ export const getCytoscapeStyles = (): any => [
   {
     selector: 'edge.department-membership',
     style: {
-      'line-color': '#f97316',
-      'target-arrow-color': '#f97316',
+      'line-color': '#21A675',
+      'target-arrow-color': '#21A675',
       'width': 2,
       'line-style': 'solid'
     }
@@ -695,8 +695,8 @@ export const getCytoscapeStyles = (): any => [
   {
     selector: 'edge.department-hierarchy',
     style: {
-      'line-color': '#7c2d12',
-      'target-arrow-color': '#7c2d12',
+      'line-color': '#8B61A2',
+      'target-arrow-color': '#8B61A2',
       'width': 4,
       'line-style': 'solid'
     }
